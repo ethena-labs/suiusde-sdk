@@ -1,4 +1,4 @@
-# SuiUSDE SDK
+# SuiUSDe SDK
 
 SDK for interacting with the SuiUSDe stablecoin contract on Sui.
 
