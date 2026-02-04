@@ -79,7 +79,7 @@ pnpm redeem \
 ```bash
 pnpm redeem 0x146e9f538b1f99bb9dad3d4b4d4401a570c94bc7618903c63501007100b08438 1 5 0.5 "redeem-001"
 ```
-
+4. Enter the transaction data from the mint or redeem command output in **Transaction Bytes (base64 encoded)**.
 ## Broadcasting transactions
 
 1. Sign the transaction data on https://sagat.mystenlabs.com/tools/sign.
