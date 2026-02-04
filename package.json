@@ -16,7 +16,8 @@
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "mint": "tsx src/mint.ts",
-    "redeem": "tsx src/redeem.ts"
+    "redeem": "tsx src/redeem.ts",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
