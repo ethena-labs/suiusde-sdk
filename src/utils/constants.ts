@@ -1,5 +1,7 @@
 import type { TransactionObjectArgument } from "@mysten/sui/transactions";
 
+export const DECIMALS = 6;
+
 export type SuiUSDEOptions = {
     env: 'mainnet' | 'testnet';
     package:  {

@@ -1,12 +1,11 @@
 import { Transaction } from "@mysten/sui/transactions";
-import { MAINNET_CONSTANTS } from "./constants.js";
+import { DECIMALS, MAINNET_CONSTANTS } from "./utils/constants.js";
 import { SuiUSDE, type OrderOptions } from "./suiusde.js";
 import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { prepareMultisigTx } from "./utils/transaction.js";
 import { getCoin } from "./utils/coin.js";
 
-const DECIMALS = 6;
-
+/// Generate the tx data to redeem SUI_USDE tokens for USDC collateral.
 const redeemData = async () => {
     const address = process.argv[2];
     const amountArg = process.argv[3];
