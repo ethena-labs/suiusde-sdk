@@ -184,62 +184,6 @@ export class SuiUSDE {
         });
     }
 
-    // Get a list of admin role actions.
-    adminActions(tx: Transaction) {
-        return {
-            // Authorizes an address with a role.
-            authorizeRole: (address: string, role: Role) => {
-                const auth = this.newAuthProof(tx, 'admin');
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::authorize_role`,
-                    arguments: [tx.object(this.options.treasuryObjectId), auth, tx.pure.address(address)],
-                    typeArguments: [this.getRoleTypes()[role]],
-                });
-            },
-            // Deauthorizes an address from a role.
-            deauthorizeRole: (address: string, role: Role) => {
-                const auth = this.newAuthProof(tx, 'admin');
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::deauthorize_role`,
-                    arguments: [tx.object(this.options.treasuryObjectId), auth, tx.pure.address(address)],
-                    typeArguments: [this.getRoleTypes()[role]],
-                });
-            },
-            // Enables mint/redeem
-            enableMintRedeem: () => {
-                const auth = this.newAuthProof(tx, 'admin');
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::enable_mint_redeem`,
-                    arguments: [tx.object(this.options.treasuryObjectId), auth],
-                });
-            },
-            // Enables a collateral type.
-            enableCollateral: (collateralKey: CollateralType) => {
-                const auth = this.newAuthProof(tx, 'admin');
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::enable_collateral`,
-                    arguments: [tx.object(this.options.treasuryObjectId), auth],
-                    typeArguments: [this.options.collaterals[collateralKey].type],
-                });
-            },
-            // Enables a benefactor.
-            enableBenefactor: (benefactorAddress: string) => {
-                const auth = this.newAuthProof(tx, 'admin');
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::enable_benefactor`,
-                    arguments: [tx.object(this.options.treasuryObjectId), auth, tx.pure.address(benefactorAddress)],
-                });
-            },
-            // Version is special, as it does not need an auth proof.
-            setVersion: (version: number) => {
-                tx.moveCall({
-                    target: `${this.options.package.latest}::admin::set_version`,
-                    arguments: [tx.object(this.options.treasuryObjectId), tx.pure.u64(version)],
-                })
-            },
-        }
-    }
-
     oracleManagerActions(tx: Transaction) {
         return {
             newOracle: (options: {

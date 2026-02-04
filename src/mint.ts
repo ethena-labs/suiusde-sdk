@@ -2,7 +2,7 @@ import { Transaction } from "@mysten/sui/transactions";
 import { MAINNET_CONSTANTS } from "./constants.js";
 import { SuiUSDE, type OrderOptions } from "./suiusde.js";
 import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
-import { prepareMultisigTx } from "./utils/utils.js";
+import { prepareMultisigTx } from "./utils/transaction.js";
 import { getCoin } from "./utils/coin.js";
 
 const DECIMALS = 6;
