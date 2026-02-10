@@ -4,9 +4,8 @@ SDK for interacting with the SuiUSDe stablecoin contract on Sui.
 
 The commands presented below simulate the transaction and output serialized transaction data (base64) that can be:
 - Used for a multisig proposal
-- Signed directly using a wallet via https://sagat.mystenlabs.com/tools/sign
+- Signed and executed directly using a wallet via https://sagat.mystenlabs.com/tools/sign
 
-See [Broadcasting transactions](#broadcasting-transactions) for how to sign and broadcast transactions.
 
 Example of generated data:
 
@@ -79,11 +78,3 @@ pnpm redeem \
 ```bash
 pnpm redeem 0x146e9f538b1f99bb9dad3d4b4d4401a570c94bc7618903c63501007100b08438 1 5 0.5 "redeem-001"
 ```
-## Broadcasting transactions
-
-1. Sign the transaction data on https://sagat.mystenlabs.com/tools/sign.
-2. Once signed, a signature will be displayed on the interface.
-3. Go to https://multisig-toolkit.mystenlabs.com/execute-transaction.
-4. Enter the transaction data from the command output in **Transaction Bytes (base64 encoded)**.
-5. Enter the signature in **Signature Bytes (base64 encoded)**.
-6. Once broadcast, the transaction digest (hash) will be displayed.
