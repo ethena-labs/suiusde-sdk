@@ -16,7 +16,7 @@ const replenish = async () => {
     const coinType = customCoinType ?? constants.collaterals.usdc.type;
     const treasuryObjectId = constants.treasuryObjectId as string;
 
-    // Fetch all USDC coin objects owned by the treasury
+    // Fetch all coin objects owned by the treasury
     let coins: { objectId: string }[] = [];
     let cursor: string | null | undefined = null;
     let hasNext = true;
@@ -45,11 +45,17 @@ const replenish = async () => {
         return;
     }
 
+    const MAX_COINS_PER_TX = 100;
+    const batch = coins.slice(0, MAX_COINS_PER_TX);
+
     console.log(`Found ${coins.length} coin object(s) of type ${coinType} on the treasury.`);
+    if (coins.length > MAX_COINS_PER_TX) {
+        console.log(`Processing ${MAX_COINS_PER_TX} of ${coins.length} coins. Run the script again to process the rest.`);
+    }
 
     const tx = new Transaction();
 
-    for (const coin of coins) {
+    for (const coin of batch) {
         replenishReceiving({
             package: constants.package.latest,
             arguments: {
