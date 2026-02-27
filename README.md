@@ -40,13 +40,13 @@ pnpm mint \
   <nonce>
 ```
 
-| Argument | Description |
-|----------|-------------|
-| `sender_address` | Benefactor wallet address |
-| `amount_usdc` | Amount of USDC to deposit (e.g., `1` for 1 USDC) |
-| `expiry_minutes` | Order expiry in minutes from now |
-| `min_amount_out` | Minimum SUI_USDE to receive (6 decimals) |
-| `nonce` | Unique order identifier |
+| Argument         | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| `sender_address` | Benefactor wallet address                        |
+| `amount_usdc`    | Amount of USDC to deposit (e.g., `1` for 1 USDC) |
+| `expiry_minutes` | Order expiry in minutes from now                 |
+| `min_amount_out` | Minimum SUI_USDE to receive (6 decimals)         |
+| `nonce`          | Unique order identifier                          |
 
 **Example:**
 
@@ -67,13 +67,13 @@ pnpm redeem \
   <nonce>
 ```
 
-| Argument | Description |
-|----------|-------------|
-| `sender_address` | Benefactor wallet address |
+| Argument         | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `sender_address` | Benefactor wallet address                            |
 | `amount_suiusde` | Amount of SUI_USDE to redeem (e.g., `1` for 1 token) |
-| `expiry_minutes` | Order expiry in minutes from now |
-| `min_amount_out` | Minimum USDC to receive (6 decimals) |
-| `nonce` | Unique order identifier |
+| `expiry_minutes` | Order expiry in minutes from now                     |
+| `min_amount_out` | Minimum USDC to receive (6 decimals)                 |
+| `nonce`          | Unique order identifier                              |
 
 **Example:**
 
