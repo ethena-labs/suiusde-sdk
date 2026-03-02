@@ -24,10 +24,10 @@
   "license": "ISC",
   "packageManager": "pnpm@10.25.0",
   "devDependencies": {
-    "@types/node": "^25.2.0",
-    "prettier": "^3.6.2",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "@types/node": "25.3.3",
+    "prettier": "3.8.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
   },
   "dependencies": {
     "@mysten/codegen": "^0.5.10",
