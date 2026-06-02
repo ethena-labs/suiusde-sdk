@@ -1,0 +1,20 @@
+# pnpm-specific settings live here (pnpm v11 no longer reads non-auth/registry
+# settings from .npmrc). Registry/auth settings, if any, stay in .npmrc.
+
+# Supply-chain hardening
+# Refuse to install package versions younger than 10 days
+minimumReleaseAge: 14400
+# Fail (don't silently downgrade) if a package's publisher trust level drops
+trustPolicy: no-downgrade
+# Known-benign provenance downgrades, vetted and exempted from no-downgrade.
+# Each is a maintainer that stopped publishing with npm provenance (not an
+# attack). Review before adding. See nodejs/undici#4666.
+trustPolicyExclude:
+  - undici-types
+# Transitive deps must resolve from the registry, not git/tarball sources
+blockExoticSubdeps: true
+
+# Dependencies permitted to run install/build scripts (replaces the v10
+# onlyBuiltDependencies list). esbuild fetches its platform binary (via tsx).
+allowBuilds:
+  esbuild: true
