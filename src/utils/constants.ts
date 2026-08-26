@@ -91,7 +91,7 @@ export const MAINNET_CONSTANTS: SuiUSDEOptions = {
   package: {
     v1: "0x41d587e5336f1c86cad50d38a7136db99333bb9bda91cea4ba69115defeb1402",
     latest:
-      "0x41d587e5336f1c86cad50d38a7136db99333bb9bda91cea4ba69115defeb1402",
+      "0xb81bd7d3d18ed48c31286ac66c2dc7f301a8b57227130de0dbddd5f7aa3a0ccc",
   },
   treasuryObjectId:
     "0xe6c3c84c34ba2f4869b5df23161ea8700c14e1de1328808258702567e40366ea",
@@ -108,7 +108,7 @@ export const MAINNET_CONSTANTS: SuiUSDEOptions = {
         feed: "0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a",
         identifier: "pyth",
         priceInfoObjectId:
-          "0x5dec622733a204ca27f5a90d8c2fad453cc6665186fd5dff13a83d0b6c9027ab",
+          "0x6ddfc6f9921e55998cbc2e68f78eba897981d79ac17f66c5277bc38954a2a3f8",
       },
     },
     // dummy is disabled on mainnet

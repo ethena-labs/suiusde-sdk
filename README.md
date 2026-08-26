@@ -3,11 +3,11 @@
 SDK for interacting with the SuiUSDe stablecoin contract on Sui.
 
 The commands presented below simulate the transaction and output serialized transaction data (base64) that can be:
+
 - Used for a multisig proposal
 - Executed directly using a wallet via https://sagat.mystenlabs.com/tools/sign
   - Paste the data in the `Transaction Data` input
   - Use the `Sign and Execute with Wallet` button to sign and send the transaction
-
 
 Example of generated transaction data:
 
