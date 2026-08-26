@@ -9,8 +9,12 @@ export type Network = "mainnet" | "testnet" | "devnet" | "localnet";
 export const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 /// Get the client for the specified network.
+/// Set `SUI_RPC_URL` to override the default public fullnode (whose JSON-RPC surface
+/// is being deprecated in favor of gRPC/GraphQL) with a working endpoint.
 export const getClient = (network: Network) => {
-  return new SuiClient({ url: getFullnodeUrl(network) });
+  return new SuiClient({
+    url: process.env.SUI_RPC_URL ?? getFullnodeUrl(network),
+  });
 };
 
 /// Builds a transaction (unsigned) and saves it on `setup/tx/tx-data.txt` (on production)

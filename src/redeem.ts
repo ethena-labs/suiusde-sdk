@@ -1,8 +1,7 @@
 import { Transaction } from "@mysten/sui/transactions";
 import { DECIMALS, MAINNET_CONSTANTS } from "./utils/constants.js";
 import { SuiUSDE, type OrderOptions } from "./suiusde.js";
-import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
-import { prepareMultisigTx } from "./utils/transaction.js";
+import { getClient, prepareMultisigTx } from "./utils/transaction.js";
 import { getCoin } from "./utils/coin.js";
 
 /// Generate the tx data to redeem SUI_USDE tokens for USDC collateral.
@@ -56,7 +55,7 @@ const redeemData = async () => {
   const tx = new Transaction();
   const constants = MAINNET_CONSTANTS;
 
-  const client = new SuiClient({ url: getFullnodeUrl("mainnet") });
+  const client = getClient("mainnet");
   const suiusdeClient = new SuiUSDE(constants, client);
 
   console.log("Benefactor address:", address);
@@ -78,7 +77,7 @@ const redeemData = async () => {
 
   // Create oracle proof and commit Pyth price
   const oracleProof = suiusdeClient.newOracleProof(tx, "usdc");
-  suiusdeClient.commitPythPrice(
+  suiusdeClient.commitPythPriceV2(
     tx,
     "usdc",
     tx.object(constants.collaterals.usdc.pyth.priceInfoObjectId),
