@@ -23,6 +23,14 @@ export const MintRedeemDisabled = new MoveTuple({
   name: `${$moduleName}::MintRedeemDisabled`,
   fields: [bcs.bool()],
 });
+export const GlobalCoinPauseEnabled = new MoveTuple({
+  name: `${$moduleName}::GlobalCoinPauseEnabled`,
+  fields: [bcs.bool()],
+});
+export const GlobalCoinPauseDisabled = new MoveTuple({
+  name: `${$moduleName}::GlobalCoinPauseDisabled`,
+  fields: [bcs.bool()],
+});
 export const CollateralEnabled = new MoveTuple({
   name: `${$moduleName}::CollateralEnabled`,
   fields: [bcs.bool()],

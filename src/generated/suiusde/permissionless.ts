@@ -87,20 +87,64 @@ export function replenishReceiving(options: ReplenishReceivingOptions) {
       typeArguments: options.typeArguments,
     });
 }
+export interface ReplenishFromAddressBalanceArguments {
+  treasury: RawTransactionArgument<string>;
+  amount: RawTransactionArgument<number | bigint>;
+}
+export interface ReplenishFromAddressBalanceOptions {
+  package?: string;
+  arguments:
+    | ReplenishFromAddressBalanceArguments
+    | [
+        treasury: RawTransactionArgument<string>,
+        amount: RawTransactionArgument<number | bigint>,
+      ];
+  typeArguments: [string];
+}
+/** Receive + merge operation, for address balances */
+export function replenishFromAddressBalance(
+  options: ReplenishFromAddressBalanceOptions,
+) {
+  const packageAddress = options.package ?? "@suiusde/suiusde";
+  const argumentsTypes = [
+    `${packageAddress}::treasury::Treasury`,
+    "u64",
+  ] satisfies string[];
+  const parameterNames = ["treasury", "amount"];
+  return (tx: Transaction) =>
+    tx.moveCall({
+      package: packageAddress,
+      module: "permissionless",
+      function: "replenish_from_address_balance",
+      arguments: normalizeMoveArguments(
+        options.arguments,
+        argumentsTypes,
+        parameterNames,
+      ),
+      typeArguments: options.typeArguments,
+    });
+}
 export interface NewOracleProofArguments {
+  treasury: RawTransactionArgument<string>;
   oracle: RawTransactionArgument<string>;
 }
 export interface NewOracleProofOptions {
   package?: string;
-  arguments: NewOracleProofArguments | [oracle: RawTransactionArgument<string>];
+  arguments:
+    | NewOracleProofArguments
+    | [
+        treasury: RawTransactionArgument<string>,
+        oracle: RawTransactionArgument<string>,
+      ];
 }
 /** Get a new oracle commitment, that can be filled when committing prices */
 export function newOracleProof(options: NewOracleProofOptions) {
   const packageAddress = options.package ?? "@suiusde/suiusde";
   const argumentsTypes = [
+    `${packageAddress}::treasury::Treasury`,
     `${packageAddress}::aggregated_oracle::AggregatedOracle`,
   ] satisfies string[];
-  const parameterNames = ["oracle"];
+  const parameterNames = ["treasury", "oracle"];
   return (tx: Transaction) =>
     tx.moveCall({
       package: packageAddress,
@@ -114,35 +158,78 @@ export function newOracleProof(options: NewOracleProofOptions) {
     });
 }
 export interface CommitPythPriceArguments {
-  oracle: RawTransactionArgument<string>;
-  infoObject: RawTransactionArgument<string>;
-  proof: RawTransactionArgument<string>;
+  Treasury: RawTransactionArgument<string>;
+  Oracle: RawTransactionArgument<string>;
+  InfoObject: RawTransactionArgument<string>;
+  Proof: RawTransactionArgument<string>;
 }
 export interface CommitPythPriceOptions {
   package?: string;
   arguments:
     | CommitPythPriceArguments
     | [
-        oracle: RawTransactionArgument<string>,
-        infoObject: RawTransactionArgument<string>,
-        proof: RawTransactionArgument<string>,
+        Treasury: RawTransactionArgument<string>,
+        Oracle: RawTransactionArgument<string>,
+        InfoObject: RawTransactionArgument<string>,
+        Proof: RawTransactionArgument<string>,
       ];
 }
-/** Commit Pyth price to the oracle. */
+/** Deprecated: always aborts. Use `commit_pyth_price_v2`. */
 export function commitPythPrice(options: CommitPythPriceOptions) {
   const packageAddress = options.package ?? "@suiusde/suiusde";
   const argumentsTypes = [
+    `${packageAddress}::treasury::Treasury`,
     `${packageAddress}::aggregated_oracle::AggregatedOracle`,
     "0xabf837e98c26087cba0883c0a7a28326b1fa3c5e1e2c5abdb486f9e8f594c837::price_info::PriceInfoObject",
     `${packageAddress}::oracle_proof::OracleProof`,
     "0x0000000000000000000000000000000000000000000000000000000000000002::clock::Clock",
   ] satisfies string[];
-  const parameterNames = ["oracle", "infoObject", "proof"];
+  const parameterNames = ["Treasury", "Oracle", "InfoObject", "Proof"];
   return (tx: Transaction) =>
     tx.moveCall({
       package: packageAddress,
       module: "permissionless",
       function: "commit_pyth_price",
+      arguments: normalizeMoveArguments(
+        options.arguments,
+        argumentsTypes,
+        parameterNames,
+      ),
+    });
+}
+export interface CommitPythPriceV2Arguments {
+  treasury: RawTransactionArgument<string>;
+  oracle: RawTransactionArgument<string>;
+  infoObject: RawTransactionArgument<string>;
+  proof: RawTransactionArgument<string>;
+}
+export interface CommitPythPriceV2Options {
+  package?: string;
+  arguments:
+    | CommitPythPriceV2Arguments
+    | [
+        treasury: RawTransactionArgument<string>,
+        oracle: RawTransactionArgument<string>,
+        infoObject: RawTransactionArgument<string>,
+        proof: RawTransactionArgument<string>,
+      ];
+}
+/** Commit Pyth price to the oracle, using the pro-compatible Pyth package. */
+export function commitPythPriceV2(options: CommitPythPriceV2Options) {
+  const packageAddress = options.package ?? "@suiusde/suiusde";
+  const argumentsTypes = [
+    `${packageAddress}::treasury::Treasury`,
+    `${packageAddress}::aggregated_oracle::AggregatedOracle`,
+    "0xd1ac23e1582080e2e5d43dbad1cf463ea2337cdbbb1a9ca669e470cefb74d8fd::price_info::PriceInfoObject",
+    `${packageAddress}::oracle_proof::OracleProof`,
+    "0x0000000000000000000000000000000000000000000000000000000000000002::clock::Clock",
+  ] satisfies string[];
+  const parameterNames = ["treasury", "oracle", "infoObject", "proof"];
+  return (tx: Transaction) =>
+    tx.moveCall({
+      package: packageAddress,
+      module: "permissionless",
+      function: "commit_pyth_price_v2",
       arguments: normalizeMoveArguments(
         options.arguments,
         argumentsTypes,

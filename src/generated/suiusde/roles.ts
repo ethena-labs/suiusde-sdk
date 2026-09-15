@@ -1,17 +1,21 @@
 /**************************************************************
  * THIS FILE IS GENERATED AND SHOULD NOT BE MANUALLY MODIFIED *
  **************************************************************/
-import { MoveTuple, MoveStruct } from "../utils/index.js";
+import { MoveStruct } from "../utils/index.js";
 import { bcs } from "@mysten/sui/bcs";
 import * as bag from "./deps/sui/bag.js";
 const $moduleName = "@suiusde/suiusde::roles";
-export const AdminRole = new MoveTuple({
+export const AdminRole = new MoveStruct({
   name: `${$moduleName}::AdminRole`,
-  fields: [bcs.bool()],
+  fields: {
+    dummy_field: bcs.bool(),
+  },
 });
-export const BenefactorRole = new MoveTuple({
+export const BenefactorRole = new MoveStruct({
   name: `${$moduleName}::BenefactorRole`,
-  fields: [bcs.bool()],
+  fields: {
+    dummy_field: bcs.bool(),
+  },
 });
 export const Roles = new MoveStruct({
   name: `${$moduleName}::Roles`,

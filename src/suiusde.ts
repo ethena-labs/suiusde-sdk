@@ -250,7 +250,7 @@ export class SuiUSDE {
   }
 
   /// Commit the pyth price
-  commitPythPrice(
+  commitPythPriceV2(
     tx: Transaction,
     collateralKey: CollateralType,
     infoObject: TransactionObjectArgument,
@@ -258,7 +258,7 @@ export class SuiUSDE {
   ) {
     const collateral = this.options.collaterals[collateralKey];
     return tx.moveCall({
-      target: `${this.options.package.latest}::permissionless::commit_pyth_price`,
+      target: `${this.options.package.latest}::permissionless::commit_pyth_price_v2`,
       arguments: [
         tx.object(this.options.treasuryObjectId),
         tx.object(collateral.aggregatedOracleId),
