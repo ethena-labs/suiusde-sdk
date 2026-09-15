@@ -1,4 +1,5 @@
-import type { SuiClient } from "@mysten/sui/client";
+import type { SuiGrpcClient } from "@mysten/sui/grpc";
+import { bcs } from "@mysten/sui/bcs";
 import {
   Transaction,
   type TransactionObjectArgument,
@@ -7,6 +8,15 @@ import {
 import { deriveDynamicFieldID } from "@mysten/sui/utils";
 import type { CollateralType, SuiUSDEOptions } from "./utils/constants.js";
 import { CollateralKey, Treasury } from "./generated/suiusde/treasury.js";
+import { CollateralConfig } from "./generated/suiusde/collateral_config.js";
+import * as object from "./generated/suiusde/deps/sui/object.js";
+
+/// The on-chain representation of a `dynamic_field::Field<CollateralKey<T>, CollateralConfig>`.
+const CollateralDynamicField = bcs.struct("CollateralDynamicField", {
+  id: object.UID,
+  name: CollateralKey,
+  value: CollateralConfig,
+});
 
 /// Options for creating a new order (mint or redeem).
 export type OrderOptions = {
@@ -46,14 +56,14 @@ const RoleTypes = ({ packageIdV1 }: { packageIdV1: string }) => {
 
 export class SuiUSDE {
   options: SuiUSDEOptions;
-  client: SuiClient;
+  client: SuiGrpcClient;
 
-  constructor(options: SuiUSDEOptions, client: SuiClient) {
+  constructor(options: SuiUSDEOptions, client: SuiGrpcClient) {
     this.client = client;
     this.options = options;
   }
 
-  getClient(): SuiClient {
+  getClient(): SuiGrpcClient {
     return this.client;
   }
 
@@ -71,14 +81,12 @@ export class SuiUSDE {
       throw new Error(
         "Treasury object ID is not set. Please initialize it first!",
       );
-    const treasury = await this.client.getObject({
-      id: this.options.treasuryObjectId as string,
-      options: { showBcs: true },
+    const { object: treasury } = await this.client.getObject({
+      objectId: this.options.treasuryObjectId as string,
+      include: { content: true },
     });
-    if (treasury.data?.bcs?.dataType !== "moveObject")
-      throw new Error("Expected a move object");
 
-    const treasuryData = Treasury.fromBase64(treasury.data.bcs.bcsBytes);
+    const treasuryData = Treasury.parse(treasury.content);
 
     return {
       config: treasuryData.config,
@@ -104,22 +112,21 @@ export class SuiUSDE {
       CollateralKey.serialize([false]).toBytes(),
     );
 
-    const result = await this.client.getObject({
-      id: collateralObjectId,
-      options: { showContent: true },
+    const { object: collateralObject } = await this.client.getObject({
+      objectId: collateralObjectId,
+      include: { content: true },
     });
 
-    if (result.data?.content?.dataType !== "moveObject")
-      throw new Error("Expected a move object");
-
-    const content = (result.data.content.fields as any).value.fields;
+    const { value: content } = CollateralDynamicField.parse(
+      collateralObject.content,
+    );
 
     let limiter = {
-      epochCounter: content.limiter.fields.epoch_counter.fields,
-      periodCounter: content.limiter.fields.period_counter.fields,
+      epochCounter: content.limiter.epoch_counter,
+      periodCounter: content.limiter.period_counter,
       limits: {
-        epoch: content.limiter.fields.limits.fields.epoch.fields,
-        period: content.limiter.fields.limits.fields.period.fields,
+        epoch: content.limiter.limits.epoch,
+        period: content.limiter.limits.period,
       },
     };
 
@@ -129,9 +136,9 @@ export class SuiUSDE {
       redeemBalance: Number(content.redeem_balance),
       limiter,
       decimals: content.decimals,
-      defaultFee: content.default_fee.fields,
+      defaultFee: content.default_fee,
       oracleId: content.oracle_id,
-      oracleLimits: content.oracle_limits.fields,
+      oracleLimits: content.oracle_limits,
       extraStorage: content.extra_storage,
     };
   }

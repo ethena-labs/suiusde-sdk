@@ -1,4 +1,4 @@
-import type { SuiClient } from "@mysten/sui/client";
+import type { SuiGrpcClient } from "@mysten/sui/grpc";
 import type {
   Transaction,
   TransactionObjectArgument,
@@ -10,23 +10,23 @@ import type {
  */
 export async function getCoin(
   tx: Transaction,
-  client: SuiClient,
+  client: SuiGrpcClient,
   owner: string,
   amount: bigint,
   coinType: string,
 ): Promise<TransactionObjectArgument> {
   // Fetch all coins of the specified type owned by the address
-  const coins = await client.getCoins({
+  const coins = await client.listCoins({
     owner,
     coinType,
   });
 
-  if (coins.data.length === 0) {
+  if (coins.objects.length === 0) {
     throw new Error(`No coins of type ${coinType} found for address ${owner}`);
   }
 
   // Calculate total balance
-  const totalBalance = coins.data.reduce(
+  const totalBalance = coins.objects.reduce(
     (sum, coin) => sum + BigInt(coin.balance),
     0n,
   );
@@ -37,18 +37,18 @@ export async function getCoin(
     );
   }
 
-  const [primaryCoin, ...otherCoins] = coins.data;
+  const [primaryCoin, ...otherCoins] = coins.objects;
 
   // If we have multiple coins, merge them first
   if (otherCoins.length > 0) {
     tx.mergeCoins(
-      tx.object(primaryCoin!.coinObjectId),
-      otherCoins.map((c) => tx.object(c.coinObjectId)),
+      tx.object(primaryCoin!.objectId),
+      otherCoins.map((c) => tx.object(c.objectId)),
     );
   }
 
   // Split the exact amount we need
-  const [splitCoin] = tx.splitCoins(tx.object(primaryCoin!.coinObjectId), [
+  const [splitCoin] = tx.splitCoins(tx.object(primaryCoin!.objectId), [
     tx.pure.u64(amount),
   ]);
 
