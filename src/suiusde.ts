@@ -133,7 +133,7 @@ export class SuiUSDE {
     return {
       enabled: content.enabled,
       custodianAddress: content.custodian_address,
-      redeemBalance: Number(content.redeem_balance),
+      redeemBalance: Number(content.redeem_balance.value),
       limiter,
       decimals: content.decimals,
       defaultFee: content.default_fee,
