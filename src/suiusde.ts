@@ -81,7 +81,7 @@ export class SuiUSDE {
       throw new Error(
         "Treasury object ID is not set. Please initialize it first!",
       );
-    const { object: treasury } = await this.client.getObject({
+    const { object: treasury } = await this.client.core.getObject({
       objectId: this.options.treasuryObjectId as string,
       include: { content: true },
     });

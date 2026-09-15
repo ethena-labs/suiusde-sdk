@@ -16,7 +16,7 @@ export async function getCoin(
   coinType: string,
 ): Promise<TransactionObjectArgument> {
   // Fetch all coins of the specified type owned by the address
-  const coins = await client.listCoins({
+  const coins = await client.core.listCoins({
     owner,
     coinType,
   });

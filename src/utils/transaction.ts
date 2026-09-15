@@ -66,7 +66,7 @@ async function setupGasPayment(
   gasObjectId: string,
   client: SuiGrpcClient,
 ) {
-  const { object: gasObject } = await client.getObject({ objectId: gasObjectId });
+  const { object: gasObject } = await client.core.getObject({ objectId: gasObjectId });
 
   // set the gas payment.
   tx.setGasPayment([
@@ -80,7 +80,7 @@ async function setupGasPayment(
 
 /// A helper to dev inspect a transaction.
 export async function inspectTransaction(tx: Transaction, client: SuiGrpcClient) {
-  const result = await client.simulateTransaction({
+  const result = await client.transaction.simulateTransaction({
     transaction: await tx.build({ client }),
     include: { effects: true, events: true, balanceChanges: true },
   });
