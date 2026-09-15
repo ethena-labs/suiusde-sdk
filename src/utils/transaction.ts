@@ -1,19 +1,27 @@
 // Copyright (c) Mysten Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
-import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
+import { SuiGrpcClient } from "@mysten/sui/grpc";
 import { Transaction } from "@mysten/sui/transactions";
 import { toBase64 } from "@mysten/sui/utils";
 
 export type Network = "mainnet" | "testnet" | "devnet" | "localnet";
 
+const DEFAULT_GRPC_URLS: Record<Network, string> = {
+  mainnet: "https://fullnode.mainnet.sui.io:443",
+  testnet: "https://fullnode.testnet.sui.io:443",
+  devnet: "https://fullnode.devnet.sui.io:443",
+  localnet: "http://127.0.0.1:9000",
+};
+
 export const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 /// Get the client for the specified network.
-/// Set `SUI_RPC_URL` to override the default public fullnode (whose JSON-RPC surface
-/// is being deprecated in favor of gRPC/GraphQL) with a working endpoint.
+/// Set `SUI_GRPC_URL` to override the default public fullnode (rate-limited, dev only)
+/// with a dedicated gRPC-enabled endpoint.
 export const getClient = (network: Network) => {
-  return new SuiClient({
-    url: process.env.SUI_RPC_URL ?? getFullnodeUrl(network),
+  return new SuiGrpcClient({
+    network,
+    baseUrl: process.env.SUI_GRPC_URL ?? DEFAULT_GRPC_URLS[network],
   });
 };
 
@@ -56,26 +64,25 @@ export const prepareMultisigTx = async (
 async function setupGasPayment(
   tx: Transaction,
   gasObjectId: string,
-  client: SuiClient,
+  client: SuiGrpcClient,
 ) {
-  const gasObject = await client.getObject({ id: gasObjectId });
-
-  if (!gasObject.data) throw new Error("Invalid Gas Object supplied.");
+  const { object: gasObject } = await client.core.getObject({ objectId: gasObjectId });
 
   // set the gas payment.
   tx.setGasPayment([
     {
-      objectId: gasObject.data.objectId,
-      version: gasObject.data.version,
-      digest: gasObject.data.digest,
+      objectId: gasObject.objectId,
+      version: gasObject.version,
+      digest: gasObject.digest,
     },
   ]);
 }
 
 /// A helper to dev inspect a transaction.
-export async function inspectTransaction(tx: Transaction, client: SuiClient) {
-  const result = await client.dryRunTransactionBlock({
-    transactionBlock: await tx.build({ client: client }),
+export async function inspectTransaction(tx: Transaction, client: SuiGrpcClient) {
+  const result = await client.core.simulateTransaction({
+    transaction: await tx.build({ client }),
+    include: { effects: true, events: true, balanceChanges: true },
   });
   // log the result.
   console.dir(result, { depth: null });
