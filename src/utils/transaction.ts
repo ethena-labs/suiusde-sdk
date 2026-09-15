@@ -80,7 +80,7 @@ async function setupGasPayment(
 
 /// A helper to dev inspect a transaction.
 export async function inspectTransaction(tx: Transaction, client: SuiGrpcClient) {
-  const result = await client.transaction.simulateTransaction({
+  const result = await client.core.simulateTransaction({
     transaction: await tx.build({ client }),
     include: { effects: true, events: true, balanceChanges: true },
   });
