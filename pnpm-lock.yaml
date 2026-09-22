@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@mysten/codegen':
         specifier: ^0.12.7
-        version: 0.12.7
+        version: 0.12.9
       '@mysten/sui':
         specifier: ^2.29.0
-        version: 2.29.0(typescript@5.9.3)
+        version: 2.31.0(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: 25.3.3
@@ -228,12 +228,12 @@ packages:
   '@mysten/bcs@2.1.1':
     resolution: {integrity: sha512-IDYomoQ6+yvOIClBHmNdScttv+h/HbGGHLEdUmGQptR3YdqqLM5vJD28wf2QP/UXCEBkCoG7TOT6pFNw8ExYmA==}
 
-  '@mysten/codegen@0.12.7':
-    resolution: {integrity: sha512-mGNUuVMjbZ7nN56pYu2G7YBGeJ8cBksZaVRedemPA4OhAT2QWPIMfj4ojJGdfK9j77N3tor9N8mO2dnNARbD7Q==}
+  '@mysten/codegen@0.12.9':
+    resolution: {integrity: sha512-8UT/IgatfXDOlpAbp//7N3rhS1P9JcwL3CLBoM0I0S2kyKWdg/oMBN4V4RNjsRXyj3IiBxyQxzlzKOBLHHvJyQ==}
     hasBin: true
 
-  '@mysten/sui@2.29.0':
-    resolution: {integrity: sha512-k7q22+AFQ5SZXOH+a28M1J8iFVbMcWro9mt0Bb7GI1HZNsxJIyQT5Q3iZdrAM0hTwM4XQvzm5Y0f32f0nfiGxw==}
+  '@mysten/sui@2.31.0':
+    resolution: {integrity: sha512-arOQWQKB3wnF5ukTgczPsWGF4A9ggQ84YWY7tJ+B50ImGs8hrWs4E882CZlfPPavsx5gk94sNoP14lwo30ZJag==}
     engines: {node: '>=22'}
 
   '@mysten/utils@0.4.1':
@@ -275,8 +275,8 @@ packages:
   '@types/node@25.3.3':
     resolution: {integrity: sha512-DpzbrH7wIcBaJibpKo9nnSQL0MTRdnWttGyE5haGwK86xgMOkFLp7vEyfQPGLOJh5wNYiJ3V9PmUMDhV9u8kkQ==}
 
-  '@types/node@26.4.1':
-    resolution: {integrity: sha512-k97ENvZWtvA6yqz5/FS6a7duDgOPEeOQOc2iKS/nY6mX6qJUKtLnWzQS+Xj6tXweyj6ZcTAK2Qecetnvi9nCLA==}
+  '@types/node@26.5.1':
+    resolution: {integrity: sha512-CzNm2FezW4VR/LjG6yUdiEgLE/rAQ9Slj5gCu/C2VrdcW7I0ahNZ8DRbHT7zOZ6r3ONgd/bsQIeSaoDGrd1C6g==}
 
   '@typescript/typescript6@6.0.2':
     resolution: {integrity: sha512-mbCddXd+jm7hfx7w2YU64/Av4/NqqeG3GoRZgxPcgoTxYjhrcfJRw9ULch71SS4G+Q3bOXFhRvPqjguN0Hyp5w==}
@@ -303,8 +303,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  get-tsconfig@4.14.0:
-    resolution: {integrity: sha512-yTb+8DXzDREzgvYmh6s9vHsSVCHeC0G3PI5bEXNBHtmshPnO+S5O7qgLEOn0I5QvMy6kpZN8K1NKGyilLb93wA==}
+  get-tsconfig@4.14.3:
+    resolution: {integrity: sha512-++QEw4DIY7WGoukz+/+A/8dGYPT9l9yIadnmSgZ8Rjr3YVSVDipQSO9CdnJo9ePqFqUUqh+wk9uIaoiAwsiPkA==}
 
   gql.tada@1.11.3:
     resolution: {integrity: sha512-5JCI4j2f0nug8ILaCQys/yjOP78QqqjVUf47OQsME63rZfemsHT3e5vcfbHsnZiG6vxyqpKUJArtXEVwSefUhw==}
@@ -358,19 +358,19 @@ packages:
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
-  undici-types@8.3.0:
-    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
-  valibot@1.4.2:
-    resolution: {integrity: sha512-gjdCvJ6d3RyHAneqxMYMW9QMCwYMb3jpOO0IyHZV1bnRHFBHrX3VkIILt5XYR0WhwHiH7Mty8ovuPZ/O3gamrg==}
+  valibot@1.5.0:
+    resolution: {integrity: sha512-nil6AkP2TChWL43Z5uJ6GTxX01CUA+g8LWUM+N/rB9NBbkUMaUsi9PUNzlUPgoKASgmx9f7eGOYpJ04/fSa6FQ==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
       typescript:
         optional: true
 
-  zod@4.5.4:
-    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
+  zod@4.6.2:
+    resolution: {integrity: sha512-lh5RCAGFa1Cm2hjtNwLQhSs/AsqdWnTQaBER9fEwN/88pSh7KOtJavtBx/0VlkN/uFd61SwYmljLMDAsHlvzBQ==}
 
 snapshots:
 
@@ -503,23 +503,23 @@ snapshots:
       '@mysten/utils': 0.4.1
       '@scure/base': 2.4.0
 
-  '@mysten/codegen@0.12.7':
+  '@mysten/codegen@0.12.9':
     dependencies:
       '@mysten/bcs': 2.1.1
-      '@mysten/sui': 2.29.0(@typescript/typescript6@6.0.2)
+      '@mysten/sui': 2.31.0(@typescript/typescript6@6.0.2)
       '@stricli/auto-complete': 1.3.0
       '@stricli/core': 1.3.0
-      '@types/node': 26.4.1
+      '@types/node': 26.5.1
       cosmiconfig: 10.0.1
       prettier: 3.9.6
       toml: 5.0.0
       typescript: '@typescript/typescript6@6.0.2'
-      zod: 4.5.4
+      zod: 4.6.2
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
 
-  '@mysten/sui@2.29.0(@typescript/typescript6@6.0.2)':
+  '@mysten/sui@2.31.0(@typescript/typescript6@6.0.2)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
       '@mysten/bcs': 2.1.1
@@ -535,13 +535,13 @@ snapshots:
       gql.tada: 1.11.3(@typescript/typescript6@6.0.2)(graphql@17.0.2)
       graphql: 17.0.2
       poseidon-lite: 0.3.0
-      valibot: 1.4.2(@typescript/typescript6@6.0.2)
+      valibot: 1.5.0(@typescript/typescript6@6.0.2)
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/sui@2.29.0(typescript@5.9.3)':
+  '@mysten/sui@2.31.0(typescript@5.9.3)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
       '@mysten/bcs': 2.1.1
@@ -557,7 +557,7 @@ snapshots:
       gql.tada: 1.11.3(graphql@17.0.2)(typescript@5.9.3)
       graphql: 17.0.2
       poseidon-lite: 0.3.0
-      valibot: 1.4.2(typescript@5.9.3)
+      valibot: 1.5.0(typescript@5.9.3)
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
@@ -606,9 +606,9 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/node@26.4.1':
+  '@types/node@26.5.1':
     dependencies:
-      undici-types: 8.3.0
+      undici-types: 8.9.0
 
   '@typescript/typescript6@6.0.2':
     dependencies:
@@ -655,7 +655,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  get-tsconfig@4.14.0:
+  get-tsconfig@4.14.3:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
@@ -702,7 +702,7 @@ snapshots:
   tsx@4.21.0:
     dependencies:
       esbuild: 0.27.7
-      get-tsconfig: 4.14.0
+      get-tsconfig: 4.14.3
     optionalDependencies:
       fsevents: 2.3.3
 
@@ -712,14 +712,14 @@ snapshots:
 
   undici-types@7.18.2: {}
 
-  undici-types@8.3.0: {}
+  undici-types@8.9.0: {}
 
-  valibot@1.4.2(@typescript/typescript6@6.0.2):
+  valibot@1.5.0(@typescript/typescript6@6.0.2):
     optionalDependencies:
       typescript: '@typescript/typescript6@6.0.2'
 
-  valibot@1.4.2(typescript@5.9.3):
+  valibot@1.5.0(typescript@5.9.3):
     optionalDependencies:
       typescript: 5.9.3
 
-  zod@4.5.4: {}
+  zod@4.6.2: {}
