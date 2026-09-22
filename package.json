@@ -33,7 +33,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@mysten/codegen": "^0.5.10",
-    "@mysten/sui": "^1.45.0"
+    "@mysten/codegen": "^0.12.7",
+    "@mysten/sui": "^2.29.0"
   }
 }
