@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@mysten/codegen':
         specifier: ^0.12.7
-        version: 0.12.9
+        version: 0.12.11
       '@mysten/sui':
         specifier: ^2.29.0
-        version: 2.31.0(typescript@5.9.3)
+        version: 2.31.2(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: 25.3.3
@@ -228,12 +228,12 @@ packages:
   '@mysten/bcs@2.1.1':
     resolution: {integrity: sha512-IDYomoQ6+yvOIClBHmNdScttv+h/HbGGHLEdUmGQptR3YdqqLM5vJD28wf2QP/UXCEBkCoG7TOT6pFNw8ExYmA==}
 
-  '@mysten/codegen@0.12.9':
-    resolution: {integrity: sha512-8UT/IgatfXDOlpAbp//7N3rhS1P9JcwL3CLBoM0I0S2kyKWdg/oMBN4V4RNjsRXyj3IiBxyQxzlzKOBLHHvJyQ==}
+  '@mysten/codegen@0.12.11':
+    resolution: {integrity: sha512-49xo0hDLrKayb9aSWffxtmwK7clRcwc0mkoc8wkFKfUAmmE4h0AXBOdvTxwOoEdYCMIZ1T6KLdFd5H9NL1GDsA==}
     hasBin: true
 
-  '@mysten/sui@2.31.0':
-    resolution: {integrity: sha512-arOQWQKB3wnF5ukTgczPsWGF4A9ggQ84YWY7tJ+B50ImGs8hrWs4E882CZlfPPavsx5gk94sNoP14lwo30ZJag==}
+  '@mysten/sui@2.31.2':
+    resolution: {integrity: sha512-AarMaFrTlRUZyhHNRh/hrAIaxgrYXupbXypJq0TbGmgouJspwzg+fsk0aH4/67kkCeUC23idueQ2lc7BMyTlMg==}
     engines: {node: '>=22'}
 
   '@mysten/utils@0.4.1':
@@ -275,8 +275,8 @@ packages:
   '@types/node@25.3.3':
     resolution: {integrity: sha512-DpzbrH7wIcBaJibpKo9nnSQL0MTRdnWttGyE5haGwK86xgMOkFLp7vEyfQPGLOJh5wNYiJ3V9PmUMDhV9u8kkQ==}
 
-  '@types/node@26.5.1':
-    resolution: {integrity: sha512-CzNm2FezW4VR/LjG6yUdiEgLE/rAQ9Slj5gCu/C2VrdcW7I0ahNZ8DRbHT7zOZ6r3ONgd/bsQIeSaoDGrd1C6g==}
+  '@types/node@26.6.1':
+    resolution: {integrity: sha512-VqGJBMCtdhqkBUCcBLvywI0NJ+KLuVzgNnlBUNFOQjqVxzo2lxLUNg1DSey8+u2u6ktswSAxg+s68QLzWHNOuA==}
 
   '@typescript/typescript6@6.0.2':
     resolution: {integrity: sha512-mbCddXd+jm7hfx7w2YU64/Av4/NqqeG3GoRZgxPcgoTxYjhrcfJRw9ULch71SS4G+Q3bOXFhRvPqjguN0Hyp5w==}
@@ -316,8 +316,8 @@ packages:
     resolution: {integrity: sha512-FRWbddMxfkjiB7z+aQDWIR+E34xo9I8c9mtK2RPv8PmMzKRvrdsreHL/Ui/TmwHJfhHChEtsFPyMHKI+xuarQQ==}
     engines: {node: ^22.0.0 || ^24.0.0 || ^25.0.0 || >=26.0.0}
 
-  js-yaml@5.4.1:
-    resolution: {integrity: sha512-28R/k+NAjeuf7+CKlTxWZVExJGwVVLwY06DgEnOMz2gEpfNkDcD7QvyiVPT0xy0XXhU8vHsd4Ot42OOPdJG7dQ==}
+  js-yaml@5.4.2:
+    resolution: {integrity: sha512-m+aqu+LwO1O6sIopafj8HUVl5aawITwZQe/yHpMCKjaWBaA/d07B/QdMb3529REftiU+RMMHL3Vlsw3hON7vWg==}
     hasBin: true
 
   poseidon-lite@0.3.0:
@@ -369,8 +369,8 @@ packages:
       typescript:
         optional: true
 
-  zod@4.6.2:
-    resolution: {integrity: sha512-lh5RCAGFa1Cm2hjtNwLQhSs/AsqdWnTQaBER9fEwN/88pSh7KOtJavtBx/0VlkN/uFd61SwYmljLMDAsHlvzBQ==}
+  zod@4.6.5:
+    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
 
 snapshots:
 
@@ -503,23 +503,23 @@ snapshots:
       '@mysten/utils': 0.4.1
       '@scure/base': 2.4.0
 
-  '@mysten/codegen@0.12.9':
+  '@mysten/codegen@0.12.11':
     dependencies:
       '@mysten/bcs': 2.1.1
-      '@mysten/sui': 2.31.0(@typescript/typescript6@6.0.2)
+      '@mysten/sui': 2.31.2(@typescript/typescript6@6.0.2)
       '@stricli/auto-complete': 1.3.0
       '@stricli/core': 1.3.0
-      '@types/node': 26.5.1
+      '@types/node': 26.6.1
       cosmiconfig: 10.0.1
       prettier: 3.9.6
       toml: 5.0.0
       typescript: '@typescript/typescript6@6.0.2'
-      zod: 4.6.2
+      zod: 4.6.5
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
 
-  '@mysten/sui@2.31.0(@typescript/typescript6@6.0.2)':
+  '@mysten/sui@2.31.2(@typescript/typescript6@6.0.2)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
       '@mysten/bcs': 2.1.1
@@ -541,7 +541,7 @@ snapshots:
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/sui@2.31.0(typescript@5.9.3)':
+  '@mysten/sui@2.31.2(typescript@5.9.3)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
       '@mysten/bcs': 2.1.1
@@ -606,7 +606,7 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/node@26.5.1':
+  '@types/node@26.6.1':
     dependencies:
       undici-types: 8.9.0
 
@@ -619,7 +619,7 @@ snapshots:
   cosmiconfig@10.0.1:
     dependencies:
       env-paths: 2.2.1
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
 
   env-paths@2.2.1: {}
 
@@ -685,7 +685,7 @@ snapshots:
 
   graphql@17.0.2: {}
 
-  js-yaml@5.4.1:
+  js-yaml@5.4.2:
     dependencies:
       argparse: 2.0.1
 
@@ -722,4 +722,4 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  zod@4.6.2: {}
+  zod@4.6.5: {}
