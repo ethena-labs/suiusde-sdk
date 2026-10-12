@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@mysten/codegen':
         specifier: ^0.12.7
-        version: 0.12.14
+        version: 0.12.16
       '@mysten/sui':
         specifier: ^2.29.0
-        version: 2.33.0(typescript@5.9.3)
+        version: 2.33.2(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: 25.3.3
@@ -225,15 +225,15 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@mysten/bcs@2.1.1':
-    resolution: {integrity: sha512-IDYomoQ6+yvOIClBHmNdScttv+h/HbGGHLEdUmGQptR3YdqqLM5vJD28wf2QP/UXCEBkCoG7TOT6pFNw8ExYmA==}
+  '@mysten/bcs@2.1.2':
+    resolution: {integrity: sha512-fv6lyuZMTHN0xRlu4GYiV/UXUrdJDOHbXm1KfZYEU0sy/t+22yTrTVtWnAQv1Km7eyB3qHhwIrAG2aem4JMocw==}
 
-  '@mysten/codegen@0.12.14':
-    resolution: {integrity: sha512-TKOXFWRCe96lpMBuy4w7eKlORW2a9ptK8iogJitSYhRHgbticlmycRBaYhH/gN07USQ8CwnH/SqIEurNBxAR+g==}
+  '@mysten/codegen@0.12.16':
+    resolution: {integrity: sha512-S7JotlvOuAhfvOthb6R181En9C5cIjOey9grE8YPeiei5SUXGv/wJvMSZhMASo7CuV67wUkXsbxCzEm80bzxqw==}
     hasBin: true
 
-  '@mysten/sui@2.33.0':
-    resolution: {integrity: sha512-gJUVWBnWtKgc19axSwW+rGnhZ1HZmygnmNqjx5s2GoJmiPpyebgfH/e9F9JSi3J7mvaZqX7OhXIAeWVGQcO1rQ==}
+  '@mysten/sui@2.33.2':
+    resolution: {integrity: sha512-rKgdnEjJrFR8LZLVRygIbadMDBKaJeysk8Sr6rMd7j0mXaQrnUERQwnpxDODv2k1axT737ZvDrOrThOam1r5Tw==}
     engines: {node: '>=22'}
 
   '@mysten/utils@0.4.1':
@@ -275,8 +275,8 @@ packages:
   '@types/node@25.3.3':
     resolution: {integrity: sha512-DpzbrH7wIcBaJibpKo9nnSQL0MTRdnWttGyE5haGwK86xgMOkFLp7vEyfQPGLOJh5wNYiJ3V9PmUMDhV9u8kkQ==}
 
-  '@types/node@26.6.2':
-    resolution: {integrity: sha512-X1P21scMv4zGKLYqjdGjaKa7COa0RKVYYZZN/NfvLQ1JegxFhdhpZG/Lyn8AXx6CDUavKAd11v6BvfpkDByK8g==}
+  '@types/node@26.6.4':
+    resolution: {integrity: sha512-ldVPDCzj7fsaGZrLB0NuHuTvJcsNasysBAqMolr/cgxrLd1xbqxIr3XJiPnHHJUCxj5sNF1vnRj9aWnrVh5Jcg==}
 
   '@typescript/typescript6@6.0.2':
     resolution: {integrity: sha512-mbCddXd+jm7hfx7w2YU64/Av4/NqqeG3GoRZgxPcgoTxYjhrcfJRw9ULch71SS4G+Q3bOXFhRvPqjguN0Hyp5w==}
@@ -498,18 +498,18 @@ snapshots:
     dependencies:
       graphql: 17.0.2
 
-  '@mysten/bcs@2.1.1':
+  '@mysten/bcs@2.1.2':
     dependencies:
       '@mysten/utils': 0.4.1
       '@scure/base': 2.4.0
 
-  '@mysten/codegen@0.12.14':
+  '@mysten/codegen@0.12.16':
     dependencies:
-      '@mysten/bcs': 2.1.1
-      '@mysten/sui': 2.33.0(@typescript/typescript6@6.0.2)
+      '@mysten/bcs': 2.1.2
+      '@mysten/sui': 2.33.2(@typescript/typescript6@6.0.2)
       '@stricli/auto-complete': 1.3.0
       '@stricli/core': 1.3.0
-      '@types/node': 26.6.2
+      '@types/node': 26.6.4
       cosmiconfig: 10.0.1
       prettier: 3.9.6
       toml: 5.0.0
@@ -519,10 +519,10 @@ snapshots:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
 
-  '@mysten/sui@2.33.0(@typescript/typescript6@6.0.2)':
+  '@mysten/sui@2.33.2(@typescript/typescript6@6.0.2)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
-      '@mysten/bcs': 2.1.1
+      '@mysten/bcs': 2.1.2
       '@mysten/utils': 0.4.1
       '@noble/curves': 2.4.0
       '@noble/hashes': 2.4.0
@@ -541,10 +541,10 @@ snapshots:
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/sui@2.33.0(typescript@5.9.3)':
+  '@mysten/sui@2.33.2(typescript@5.9.3)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
-      '@mysten/bcs': 2.1.1
+      '@mysten/bcs': 2.1.2
       '@mysten/utils': 0.4.1
       '@noble/curves': 2.4.0
       '@noble/hashes': 2.4.0
@@ -606,7 +606,7 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/node@26.6.2':
+  '@types/node@26.6.4':
     dependencies:
       undici-types: 8.9.0
 
