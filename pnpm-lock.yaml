@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@mysten/codegen':
         specifier: ^0.12.7
-        version: 0.12.22
+        version: 0.12.24
       '@mysten/sui':
         specifier: ^2.29.0
-        version: 2.38.0(typescript@5.9.3)
+        version: 2.39.1(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: 25.3.3
@@ -225,15 +225,15 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@mysten/bcs@2.1.3':
-    resolution: {integrity: sha512-sg3hstwDLQQmQTpiX8Vzs13bEEGTqnhp1gUzBLlVQ493xyTTCDwB/jXGzT0g2I/GXd2o1B3s7Bd67Ua3VZo+Jw==}
+  '@mysten/bcs@2.1.4':
+    resolution: {integrity: sha512-ksfm0HGy82iDcuLaf4kAduaeTNqALH8D8WCdxxwU/L2Gpk4SnqoC7D8R4qMoMpCSkh56CFVG3Tme343Iz2P8PA==}
 
-  '@mysten/codegen@0.12.22':
-    resolution: {integrity: sha512-/lEBFstPoHBSpfOYW5Wth0+NGv6kgkofnWt7KFjAmQsf4TpSm6BrMUTRg/HlPiWlWPu/BvGXzxPmQUCW8xX7dg==}
+  '@mysten/codegen@0.12.24':
+    resolution: {integrity: sha512-k019oFd6lAt1+IHgnnsuOjss/XsHCFQDMUQOYr4pYf/Lv1GVW+bkgIpav4o59mF1BByZ2qfTOktSe9+mhkFRHw==}
     hasBin: true
 
-  '@mysten/sui@2.38.0':
-    resolution: {integrity: sha512-j/uG+waSo62eWH0c3+a/3V8tnsAUTKfe7OIXtIDmhPLQcWnPCchf0R5WjxMx904Vh61qfYmrySFYoAau2+7bwA==}
+  '@mysten/sui@2.39.1':
+    resolution: {integrity: sha512-cFhIn7WJcT6thzKlBO2OtqyLX5uigY/1IK0PRTa6o50Bcy0qLhacu+fjhqY7uHeXlXGrjc/kIsXs5o4KtPcieg==}
     engines: {node: '>=22'}
 
   '@mysten/utils@0.4.2':
@@ -317,9 +317,9 @@ packages:
     peerDependencies:
       typescript: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  graphql@17.0.2:
-    resolution: {integrity: sha512-FRWbddMxfkjiB7z+aQDWIR+E34xo9I8c9mtK2RPv8PmMzKRvrdsreHL/Ui/TmwHJfhHChEtsFPyMHKI+xuarQQ==}
-    engines: {node: ^22.0.0 || ^24.0.0 || ^25.0.0 || >=26.0.0}
+  graphql@17.1.0:
+    resolution: {integrity: sha512-JKCOa7rSQNrket/JFhuua86hljUO+IIpyUHfKxlKD6FEfbrLX8jc1FDrA0KPKI+s8OspBCF/5npYccAICHXPpQ==}
+    engines: {node: ^22.0.0 || ^24.0.0 || >=26.0.0}
 
   js-yaml@5.5.0:
     resolution: {integrity: sha512-paNr4LFIFPjeeSmwNYdrb8FafLLG/Cr2Af3GjbsHJ5CxIjH4r0c2emlmRdAtpPAieP1gRVzk6buBbVP5gBMGAg==}
@@ -376,20 +376,20 @@ packages:
 
 snapshots:
 
-  '@0no-co/graphql.web@1.3.4(graphql@17.0.2)':
+  '@0no-co/graphql.web@1.3.4(graphql@17.1.0)':
     optionalDependencies:
-      graphql: 17.0.2
+      graphql: 17.1.0
 
-  '@0no-co/graphqlsp@1.18.0(@typescript/typescript6@6.0.2)(graphql@17.0.2)':
+  '@0no-co/graphqlsp@1.18.0(@typescript/typescript6@6.0.2)(graphql@17.1.0)':
     dependencies:
-      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.0.2)
-      graphql: 17.0.2
+      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.1.0)
+      graphql: 17.1.0
       typescript: '@typescript/typescript6@6.0.2'
 
-  '@0no-co/graphqlsp@1.18.0(graphql@17.0.2)(typescript@5.9.3)':
+  '@0no-co/graphqlsp@1.18.0(graphql@17.1.0)(typescript@5.9.3)':
     dependencies:
-      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@5.9.3)
-      graphql: 17.0.2
+      '@gql.tada/internal': 1.2.2(graphql@17.1.0)(typescript@5.9.3)
+      graphql: 17.1.0
       typescript: 5.9.3
 
   '@esbuild/aix-ppc64@0.28.2':
@@ -470,45 +470,45 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@gql.tada/cli-utils@1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.0.2)(typescript@5.9.3))(@typescript/typescript6@6.0.2)(graphql@17.0.2)':
+  '@gql.tada/cli-utils@1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.1.0)(typescript@5.9.3))(@typescript/typescript6@6.0.2)(graphql@17.1.0)':
     dependencies:
-      '@0no-co/graphqlsp': 1.18.0(graphql@17.0.2)(typescript@5.9.3)
-      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.0.2)
-      graphql: 17.0.2
+      '@0no-co/graphqlsp': 1.18.0(graphql@17.1.0)(typescript@5.9.3)
+      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.1.0)
+      graphql: 17.1.0
       typescript: '@typescript/typescript6@6.0.2'
 
-  '@gql.tada/cli-utils@1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.0.2)(typescript@5.9.3))(graphql@17.0.2)(typescript@5.9.3)':
+  '@gql.tada/cli-utils@1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.1.0)(typescript@5.9.3))(graphql@17.1.0)(typescript@5.9.3)':
     dependencies:
-      '@0no-co/graphqlsp': 1.18.0(graphql@17.0.2)(typescript@5.9.3)
-      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@5.9.3)
-      graphql: 17.0.2
+      '@0no-co/graphqlsp': 1.18.0(graphql@17.1.0)(typescript@5.9.3)
+      '@gql.tada/internal': 1.2.2(graphql@17.1.0)(typescript@5.9.3)
+      graphql: 17.1.0
       typescript: 5.9.3
 
-  '@gql.tada/internal@1.2.2(@typescript/typescript6@6.0.2)(graphql@17.0.2)':
+  '@gql.tada/internal@1.2.2(@typescript/typescript6@6.0.2)(graphql@17.1.0)':
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
-      graphql: 17.0.2
+      '@0no-co/graphql.web': 1.3.4(graphql@17.1.0)
+      graphql: 17.1.0
       typescript: '@typescript/typescript6@6.0.2'
 
-  '@gql.tada/internal@1.2.2(graphql@17.0.2)(typescript@5.9.3)':
+  '@gql.tada/internal@1.2.2(graphql@17.1.0)(typescript@5.9.3)':
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
-      graphql: 17.0.2
+      '@0no-co/graphql.web': 1.3.4(graphql@17.1.0)
+      graphql: 17.1.0
       typescript: 5.9.3
 
-  '@graphql-typed-document-node/core@3.2.0(graphql@17.0.2)':
+  '@graphql-typed-document-node/core@3.2.0(graphql@17.1.0)':
     dependencies:
-      graphql: 17.0.2
+      graphql: 17.1.0
 
-  '@mysten/bcs@2.1.3':
+  '@mysten/bcs@2.1.4':
     dependencies:
       '@mysten/utils': 0.4.2
       '@scure/base': 2.4.0
 
-  '@mysten/codegen@0.12.22':
+  '@mysten/codegen@0.12.24':
     dependencies:
-      '@mysten/bcs': 2.1.3
-      '@mysten/sui': 2.38.0(@typescript/typescript6@6.0.2)
+      '@mysten/bcs': 2.1.4
+      '@mysten/sui': 2.39.1(@typescript/typescript6@6.0.2)
       '@stricli/auto-complete': 1.3.0
       '@stricli/core': 1.3.0
       '@types/node': 26.6.6
@@ -521,10 +521,10 @@ snapshots:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
 
-  '@mysten/sui@2.38.0(@typescript/typescript6@6.0.2)':
+  '@mysten/sui@2.39.1(@typescript/typescript6@6.0.2)':
     dependencies:
-      '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
-      '@mysten/bcs': 2.1.3
+      '@graphql-typed-document-node/core': 3.2.0(graphql@17.1.0)
+      '@mysten/bcs': 2.1.4
       '@mysten/utils': 0.4.2
       '@noble/curves': 2.4.0
       '@noble/hashes': 2.4.0
@@ -535,8 +535,8 @@ snapshots:
       '@scure/base': 2.4.0
       '@scure/bip32': 2.4.0
       '@scure/bip39': 2.4.0
-      gql.tada: 1.11.4(@typescript/typescript6@6.0.2)(graphql@17.0.2)
-      graphql: 17.0.2
+      gql.tada: 1.11.4(@typescript/typescript6@6.0.2)(graphql@17.1.0)
+      graphql: 17.1.0
       poseidon-lite: 0.3.0
       valibot: 1.5.0(@typescript/typescript6@6.0.2)
     transitivePeerDependencies:
@@ -544,10 +544,10 @@ snapshots:
       - '@gql.tada/vue-support'
       - typescript
 
-  '@mysten/sui@2.38.0(typescript@5.9.3)':
+  '@mysten/sui@2.39.1(typescript@5.9.3)':
     dependencies:
-      '@graphql-typed-document-node/core': 3.2.0(graphql@17.0.2)
-      '@mysten/bcs': 2.1.3
+      '@graphql-typed-document-node/core': 3.2.0(graphql@17.1.0)
+      '@mysten/bcs': 2.1.4
       '@mysten/utils': 0.4.2
       '@noble/curves': 2.4.0
       '@noble/hashes': 2.4.0
@@ -558,8 +558,8 @@ snapshots:
       '@scure/base': 2.4.0
       '@scure/bip32': 2.4.0
       '@scure/bip39': 2.4.0
-      gql.tada: 1.11.4(graphql@17.0.2)(typescript@5.9.3)
-      graphql: 17.0.2
+      gql.tada: 1.11.4(graphql@17.1.0)(typescript@5.9.3)
+      graphql: 17.1.0
       poseidon-lite: 0.3.0
       valibot: 1.5.0(typescript@5.9.3)
     transitivePeerDependencies:
@@ -665,31 +665,31 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  gql.tada@1.11.4(@typescript/typescript6@6.0.2)(graphql@17.0.2):
+  gql.tada@1.11.4(@typescript/typescript6@6.0.2)(graphql@17.1.0):
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
-      '@0no-co/graphqlsp': 1.18.0(@typescript/typescript6@6.0.2)(graphql@17.0.2)
-      '@gql.tada/cli-utils': 1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.0.2)(typescript@5.9.3))(@typescript/typescript6@6.0.2)(graphql@17.0.2)
-      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.0.2)
+      '@0no-co/graphql.web': 1.3.4(graphql@17.1.0)
+      '@0no-co/graphqlsp': 1.18.0(@typescript/typescript6@6.0.2)(graphql@17.1.0)
+      '@gql.tada/cli-utils': 1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.1.0)(typescript@5.9.3))(@typescript/typescript6@6.0.2)(graphql@17.1.0)
+      '@gql.tada/internal': 1.2.2(@typescript/typescript6@6.0.2)(graphql@17.1.0)
       typescript: '@typescript/typescript6@6.0.2'
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
       - graphql
 
-  gql.tada@1.11.4(graphql@17.0.2)(typescript@5.9.3):
+  gql.tada@1.11.4(graphql@17.1.0)(typescript@5.9.3):
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
-      '@0no-co/graphqlsp': 1.18.0(graphql@17.0.2)(typescript@5.9.3)
-      '@gql.tada/cli-utils': 1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.0.2)(typescript@5.9.3))(graphql@17.0.2)(typescript@5.9.3)
-      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@5.9.3)
+      '@0no-co/graphql.web': 1.3.4(graphql@17.1.0)
+      '@0no-co/graphqlsp': 1.18.0(graphql@17.1.0)(typescript@5.9.3)
+      '@gql.tada/cli-utils': 1.9.4(@0no-co/graphqlsp@1.18.0(graphql@17.1.0)(typescript@5.9.3))(graphql@17.1.0)(typescript@5.9.3)
+      '@gql.tada/internal': 1.2.2(graphql@17.1.0)(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
       - '@gql.tada/vue-support'
       - graphql
 
-  graphql@17.0.2: {}
+  graphql@17.1.0: {}
 
   js-yaml@5.5.0:
     dependencies:
